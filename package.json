@@ -1,0 +1,29 @@
+{
+  "name": "fakereviews",
+  "version": "1.0.0",
+  "description": "A web app to review video games, built for practice with Node, Express, Handlebars, Sequelize, and Express Session.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tmkeller/fakereviews.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tmkeller/fakereviews/issues"
+  },
+  "homepage": "https://github.com/tmkeller/fakereviews#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "express-handlebars": "^5.2.0",
+    "mysql2": "^2.2.5",
+    "sequelize": "^6.5.0"
+  },
+  "devDependencies": {
+    "sequelize-cli": "^6.2.0"
+  }
+}
