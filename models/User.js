@@ -1,3 +1,5 @@
+const bcrypt = require( 'bcrypt' );
+
 module.exports = function( sequelize, DataTypes ) {
     const User = sequelize.define( 'User', {
         username: {
@@ -18,6 +20,10 @@ module.exports = function( sequelize, DataTypes ) {
         // Add associations here
         User.hasMany( models.Review );
     };
+
+    User.beforeCreate( function( user ) {
+        user.password = bcrypt.hashSync( user.password, bcrypt.genSaltSync( 10 ), null );
+    });
 
     return User;
 }
