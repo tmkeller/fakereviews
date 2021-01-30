@@ -31,6 +31,8 @@ router.post( "/login", ( req, res ) => {
                 }
                 res.json( userData );
             } else {
+                // Reset the cookie if we fail to log in.
+                req.session.destroy();
                 res.status( 401 ).send( "wrong password" )
             }
         }
@@ -42,12 +44,17 @@ router.get( "/readsessions", ( req, res ) => {
     res.json( req.session );
 });
 
-router.get( "/secretclub" , ( req, res ) => {
+router.get( "/secretclub", ( req, res ) => {
     if ( req.session.user ) {
         res.send( `welcome to the club, ${ req.session.user.username }` );
     } else {
         res.status( 401 ).send( "log in first, doofus." );
     }
+});
+
+router.get( '/logout', ( req, res ) => {
+    req.session.destroy();
+    res.redirect( "/" );
 });
 
 

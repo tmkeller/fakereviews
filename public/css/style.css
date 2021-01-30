@@ -1,0 +1,13 @@
+body {
+    background: lightsalmon;
+}
+
+nav {
+    background: blue;
+    display: flex;
+    color: white;
+}
+
+nav a {
+    color: white;
+}

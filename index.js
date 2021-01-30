@@ -29,12 +29,15 @@ const exphbs = require( 'express-handlebars' );
 app.engine( 'handlebars', exphbs( { defaultLayout: 'main' }));
 app.set( 'view engine', 'handlebars' );
 
-app.get( '/', ( req, res ) => {
-    res.send( "stuff" );
-});
-
 const userRoutes = require( "./controllers/userController" );
 app.use( userRoutes );
+const frontEndRoutes = require( "./controllers/frontEndController" );
+app.use( frontEndRoutes );
+
+const reviewRoutes = require( "./controllers/reviewController" );
+// Tells the server to prefix every route in the ./controllers/reviewController
+// file with /api/reviews.
+app.use( "/api/reviews", reviewRoutes );
 
 // force property of this object controls whether the database 
 // is deleted every time we restart the server.
