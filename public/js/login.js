@@ -30,7 +30,7 @@ $( '#signup' ).submit( event => {
     })
 });
 
-$( '#addReview' ).submit( event => {
+$( '#addreview' ).submit( event => {
     event.preventDefault();
     $.post( "/api/reviews", {
         title: $( '#title' ).val(),
